@@ -9,3 +9,7 @@ On a page load, the script.js will first loop through local storage and compare 
 
 
 ![Workday Scheduler](/Assets/images/scheduler.png?raw=true "Workday Scheduler")
+
+Github Repository: https://github.com/ericw142/Workday_Schedule
+
+Github Pages: https://ericw142.github.io/Workday_Schedule/
