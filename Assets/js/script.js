@@ -21,27 +21,33 @@ for (var i = 0; i < localStorage.length; i++){
 
 
 // Setting colors
-for (var i = 0; i < textAreas.length; i++) {
-    // If current hour is greater, slot gets class past
-    if (textAreas[i].getAttribute('data-value') < now) {
-        textAreas.eq(i).addClass("past");
+function setColors(){
+    for (var i = 0; i < textAreas.length; i++) {
+        // If current hour is greater, slot gets class past
+        if (textAreas[i].getAttribute('data-value') < now) {
+            textAreas.eq(i).addClass("past");
+            
+        }
+        // If equal, slot gets class present
+        if (textAreas[i].getAttribute('data-value') == now) {
+            textAreas.eq(i).addClass("present");
+            
+        }
+        // If current hour is less than, slot gets class future
+        if (textAreas[i].getAttribute('data-value') > now) {
+            textAreas.eq(i).addClass("future");
+            
+        }
         
     }
-    // If equal, slot gets class present
-    if (textAreas[i].getAttribute('data-value') == now) {
-        textAreas.eq(i).addClass("present");
-        
-    }
-    // If current hour is less than, slot gets class future
-    if (textAreas[i].getAttribute('data-value') > now) {
-        textAreas.eq(i).addClass("future");
-        
-    }
-    
 }
+
 
 // Save Button function
 $(".saveBtn").on("click", function(){
+    // sets colors again in case they need to be updated
+    setColors();
+
     // Loop through textareas and check data-value
     
     for (var i = 0; i < textAreas.length; i++){
@@ -57,7 +63,7 @@ $(".saveBtn").on("click", function(){
 })
 
 
-
+setColors();
 
 
 });
