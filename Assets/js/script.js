@@ -6,13 +6,14 @@ $( document ).ready(function() {
 var textAreas = $("textarea");
 
 // Set textareas with index equal to key to the corresponding text value
+// Loops through local storage
 for (var i = 0; i < localStorage.length; i++){
-   
+//    Loops through each text area and compares with local storage
     for (var e = 0; e < textAreas.length; e++){
-      
+    //   Sets text on match
         if (localStorage.key(i) == textAreas.eq(e).attr("data-value")){
             textAreas.eq(e).val(localStorage.getItem(textAreas.eq(e).attr("data-value")));
-            console.log("matched at: "+localStorage.key(i));
+            
         }
         
     }
@@ -42,7 +43,7 @@ for (var i = 0; i < textAreas.length; i++) {
 // Save Button function
 $(".saveBtn").on("click", function(){
     // Loop through textareas and check data-value
-    console.log($(this).attr("data-value"));
+    
     for (var i = 0; i < textAreas.length; i++){
         // If data-value of textarea equals data-value of this, save that textarea's value to local storage with key equal to i
         if ($(this).attr("data-value") === textAreas.eq(i).attr("data-value")) {
